@@ -1,62 +1,78 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-  GOV.UK prototype kit
+ESFA Hub - GOV.UK
+{% endblock %}
+
+{% block service_name %}
+ESFA Hub
 {% endblock %}
 
 {% block content %}
 
 <main id="content" role="main">
-  <div class="grid-row">
-    <div class="column-two-thirds">
+	{% include 'includes/phase_banner_alpha.html' %}
+	
+	<div class="grid-row">
+		<div class="column-full">
+			<h1 class="heading-xlarge">
+				Cambridge College
+				<span class="heading-secondary">UKPRN: 20871288</span>
+			</h1>
+		</div>
+	</div>
+	
+	<div class="grid-row">
+		<ul>
+			<li class="column-third margin-top">
+				<a class="dashboard-links" href="/submit-ilr">
+                        
+					<span class="service-name">
+						<abbr title="Individualised Learner Record">ILR</abbr> submission<br>
+						<small class="font-xsmall">Current period: R_06</small>
+					</span>
+                    
+					{% if data['file-upload'] and  'invalid' in data['file-upload'] %}
+					<span class="alert-name-red">1 report to review</span>		
+					{% elif data['file-upload'] and  'valid' in data['file-upload'] %}
+					<span class="alert-name-green">1 report to review</span>		
+					{% else %}
+					<span class="alert-name-blue">Submit an ILR file</span>
+					{% endif %}
+				</a>
+			</li>
 
-      <h1 class="heading-xlarge">
-        The GOV.UK prototype kit
-        <span class="heading-secondary">{{releaseVersion}}</span>
-      </h1>{{releaseVersion | log }}
-      <p>
-        This kit lets you rapidly create HTML prototypes of GOV.UK services.
-      </p>
+			<li class="column-third margin-top">
+				<a class="dashboard-links" href="andrea-authoriser">
+                        
+					<span class="service-name"><abbr title="Earnings adjustment statement">EAS</abbr> submission</span>
+					
+					<!--<span class="alert-name-red">2 new alerts to review</span>-->
+					<span class="alert-name-blue">Submit an EAS</span>
+				</a>
+			</li>
 
-      <p>
-        It contains all you need to prototype anything from simple static pages to complex, data-driven transactions.
-      </p>
+			<li class="column-third margin-top">
+				<a class="dashboard-links" href="andrea-authoriser-NEW">
+                        
+					<span class="service-name">Data Returns</span>
+                    
+					<span class="alert-name-blue">Review your funding claims</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+			
+	<h2 class="heading-medium">Other resources</h2>
 
-      <h2 class="heading-medium">About this page</h2>
-
-      <p>We recommend you add links to your prototype to this page, rather than delete it.
-        You'll find this page in the kit at '/app/views/index.html'.</p>
-      <p>You can change the service name by editing the file '/app/config.js'.</p>
-
-			<h2 class="heading-medium">Examples and documentation</h2>
-
-			<ul class="list list-bullet">
-				<li><a href="/docs/tutorials-and-examples">Example pages and documentation</a></li>
-				<li><a href="https://github.com/alphagov/govuk_prototype_kit">GitHub</a></li>
-			</ul>
-
-      <h2 class="heading-medium">Other resources</h2>
-
-			<ul class="list list-bullet">
-				<li>
-					<a href="https://govuk-elements.herokuapp.com/snippets/">
-						Guide to GOV.UK Elements
-					</a>
-				</li>
-				<li>
-					<a href="https://www.gov.uk/service-manual">
-						Service design manual
-					</a>
-				</li>
-				<li>
-					<a href="https://www.gov.uk/design-principles">
-						Government Digital Service Design Principles
-					</a>
-				</li>
-			</ul>
-
-    </div>
-  </div>
+	<ul class="list list-bullet">
+		<li>
+			<a href="https://www.gov.uk/guidance/sfa-funding-rules">Funding Rules</a>
+		</li>
+		<li>
+			<a href="https://www.gov.uk/government/collections/individualised-learner-record-ilr">The ILR Returns Calendar</a>
+		</li>
+	</ul>
 </main>
 
 {% endblock %}

@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Submit an ILR - GOV.UK
+{% endblock %}
+
+{% block service_name %}
+Submit an ILR
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+	{% include 'includes/phase_banner_alpha.html' %}
+	
+	<div class="back">
+		<a class="back-to-previous link-back" href="javascript:history.back()">Back<span class="visuallyhidden"> to the previous question</span></a>
+	</div>
+	
+	<div class="grid-row">
+		<div class="column-two-thirds">
+			<h1 class="heading-large">
+				Review and submit your <abbr title="Individual Learner Record">ILR</abbr> file
+			</h1>
+			
+			
+			<table>
+				<caption class="heading-medium">ILR file details</caption>
+				<tbody>
+					<tr>
+						<td class="bold">File name</td>
+						<td>{{ data['file-upload'] }}</td>
+						<td>
+							<a href="javascript:history.back()">Change<span class="visually-hidden"> file</span></a>
+						</td>
+					</tr>
+					<tr>
+						<td class="bold">File size</td>
+						<td>209.8kb</td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+			
+			<h2 class="heading-medium">Submit your ILR file</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+			<input type="text" name="file-name" id="file-name" class="hidden" value="{{ data['file-upload-name'] }}">
+	        <p><a class="button" href="submission-complete" role="button">Confirm and submit file</a></p>
+			
+		</div>
+	</div>
+</main>
+
+{% endblock %}
+
+

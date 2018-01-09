@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Submit an ILR - GOV.UK
+{% endblock %}
+
+{% block service_name %}
+Submit an ILR
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+	{% include 'includes/phase_banner_alpha.html' %}
+	
+	<div class="breadcrumbs">
+		<ol>
+			<li><a href="/">Cambridge College</a></li>
+			<li><a href="/examples">Submit your ILR</a></li>
+		</ol>
+	</div>
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <h1 class="heading-xlarge">
+        Submit an <abbr title="Individualised Learner Record">ILR</abbr>
+      </h1>
+	  
+      <p>Make sure that you have:</p>
+
+	  <ul class="list list-bullet">
+		  <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+		  <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+		  <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</li>
+		  <li>Excepteur sint occaecat cupidatat non proident.</li>
+	  </ul>
+
+      <a class="button button-start" href="/upload" role="button">Start now</a>
+
+      <h2 class="heading-medium">Other resources</h2>
+
+			<ul class="list list-bullet">
+				<li>
+					<a href="https://www.gov.uk/guidance/sfa-funding-rules">Funding Rules</a>
+				</li>
+				<li>
+					<a href="https://www.gov.uk/government/collections/individualised-learner-record-ilr">The ILR Returns Calendar</a>
+				</li>
+			</ul>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}
+
+
