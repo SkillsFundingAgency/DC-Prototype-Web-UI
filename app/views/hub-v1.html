@@ -28,10 +28,10 @@ ESFA Hub
 				<a class="dashboard-links" href="/submit-ilr">
                         
 					<span class="service-name">
-						<abbr title="Individualised Learner Record">ILR</abbr> submission<br>
-						<small class="font-xsmall">Current period: R_06</small>
+						Individualised Learner Records (<abbr title="Individualised Learner Record">ILR</abbr>)<br>
+						<small class="font-xsmall">Return period 6</small>
 					</span>
-                    
+					
 					{% if data['file-upload'] and  'invalid' in data['file-upload'] %}
 					<span class="alert-name-red">1 report to review</span>		
 					{% elif data['file-upload'] and  'valid' in data['file-upload'] %}

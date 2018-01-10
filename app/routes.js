@@ -3,7 +3,7 @@ const router = express.Router()
 
 // Route index page
 router.get('/', function (req, res) {
-  res.render('index')
+  res.render('hub-v1')
 })
 
 // Route index page

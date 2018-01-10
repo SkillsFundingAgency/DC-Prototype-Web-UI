@@ -1,0 +1,98 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+ESFA Hub - GOV.UK
+{% endblock %}
+
+{% block service_name %}
+ESFA Hub
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+	{% include 'includes/phase_banner_alpha.html' %}
+	
+	<ul>
+		<div class="grid-row">
+			<li class="column-half">
+				<h2 class="heading-large">
+					<a href="#">Individualised Learner Records (<abbr title="Individualised Learner Record">ILR</abbr>)</a>
+					<span class="heading-secondary">Return period 6</span>
+				</h2>
+				
+					<p>
+						{% if data['file-upload'] and  'invalid' in data['file-upload'] %}
+						<a href="#">1 report to review with errors</a>
+						{% elif data['file-upload'] and  'valid' in data['file-upload'] %}
+						<a href="#">1 report to review without errors</a>
+						{% else %}
+						<a href="/submit-ilr" class="bold">Submit an ILR file</a>
+						{% endif %}
+					</p>
+					<p><a href="#">View previous ILR submissions</a></p>
+				
+				<li class="column-half">
+					<h2 class="heading-large">
+						<a href="#">Earnings adjustment statements (<abbr title="Earnings adjustment statement">EAS</abbr>)</a>
+					</h2>
+                    
+					<a href="#">View your Earnings adjustment statements</a>
+				</li>
+			</li>
+		</div>
+		<br>
+		<div class="grid-row">
+			<li class="column-half">
+				<h2 class="heading-large">
+					Learning aims
+				</h2>
+				
+				<ul>     
+					<li>
+						{% if data['file-upload'] and  'invalid' in data['file-upload'] %}
+						<a href="#">1 report to review with errors</a>
+						{% elif data['file-upload'] and  'valid' in data['file-upload'] %}
+						<a href="#">1 report to review without errors</a>
+						{% else %}
+						<a href="/submit-ilr">Submit an ILR file</a>
+						{% endif %}
+					</li>
+					<li><a href="#">View previous ILR submissions</a></li>
+				</ul>
+				
+				<li class="column-half">
+					<h2 class="heading-large">
+						Earnings adjustment statements (<abbr title="Earnings adjustment statement">EAS</abbr>)
+					</h2>
+                    
+					{% if data['file-upload'] and  'invalid' in data['file-upload'] %}
+					1 report to review with errors
+					{% elif data['file-upload'] and  'valid' in data['file-upload'] %}
+					1 report to review without errors
+					{% else %}
+					Submit an ILR file
+					{% endif %}
+				</li>
+			</li>
+		</div>
+	</ul>
+
+	
+	</div>
+			
+	<h2 class="heading-medium">Other resources</h2>
+
+	<ul class="list list-bullet">
+		<li>
+			<a href="https://www.gov.uk/guidance/sfa-funding-rules">Funding Rules</a>
+		</li>
+		<li>
+			<a href="https://www.gov.uk/government/collections/individualised-learner-record-ilr">The ILR Returns Calendar</a>
+		</li>
+	</ul>
+</main>
+
+{% endblock %}
+
+
