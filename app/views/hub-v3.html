@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+ESFA Hub - GOV.UK
+{% endblock %}
+
+{% block service_name %}
+ESFA Hub
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+	{% include 'includes/phase_banner_alpha.html' %}
+	<div class="grid-row">
+		<div class="column-two-thirds">
+			<h2 class="heading-large">
+				Individualised Learner Records (<abbr title="Individualised Learner Record">ILR</abbr>)
+			</h2>
+				
+			<p>
+				{% if data['file-upload'] and  'invalid' in data['file-upload'] %}
+				<a href="#">1 report to review with errors</a>
+				{% elif data['file-upload'] and  'valid' in data['file-upload'] %}
+				<a href="#">1 report to review without errors</a>
+				{% else %}
+				<a href="/submit-ilr" class="button-secondary">Submit an ILR file</a>
+				{% endif %}
+			</p>
+			<p><a href="#">View previous ILR submissions</a></p>
+			<p><a href="#">ILR reports</a></p>
+			
+			<hr>
+			
+			<h2 class="heading-large">
+				Earnings adjustment statements (<abbr title="Earnings adjustment statement">EAS</abbr>)
+			</h2>
+                    
+			<p><a href="#">Manage your Earnings adjustment statements</a></p>
+			<p><a href="#">EAS reports</a></p>
+			
+			<hr>
+			
+			<h2 class="heading-large">
+				Learning aims
+			</h2>
+				
+			<p><a href="#" class="button-secondary">Find a Learning aim</a></p>
+			
+			<hr>
+			
+			<h2 class="heading-medium">Other resources</h2>
+
+			<ul class="list list-bullet">
+				<li>
+					<a href="https://www.gov.uk/guidance/sfa-funding-rules">Funding Rules</a>
+				</li>
+				<li>
+					<a href="https://www.gov.uk/government/collections/individualised-learner-record-ilr">The ILR Returns Calendar</a>
+				</li>
+			</ul>
+		</div>
+		
+		<div class="column-one-third">
+			{% include 'includes/return_period_info.html' %}
+			
+			<h3 class="heading-medium">Service information</h3>
+			<p>We could include some notices in this space here maybe. Maybe not.</p>
+			<p>Nothing really important though as that should probably go somewhere else.</p>
+		</div>
+	</div>
+</main>
+
+{% endblock %}
+
+

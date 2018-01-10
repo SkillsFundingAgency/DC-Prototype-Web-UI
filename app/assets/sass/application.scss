@@ -101,3 +101,8 @@ a.dashboard-links {
 }
 
 /*End of dashboard style*/
+
+
+.button-secondary{
+	@include button($grey-3);
+}
