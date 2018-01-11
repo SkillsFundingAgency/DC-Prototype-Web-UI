@@ -13,22 +13,44 @@ ESFA Hub
 <main id="content" role="main">
 	{% include 'includes/phase_banner_alpha.html' %}
 	<div class="grid-row">
-		<div class="column-two-thirds">
+		<div class="column-two-thirds">			
+			<h1 class="heading-xlarge">			
+				Cambridge College
+				<span class="heading-secondary">UKPRN: 10008189</span>
+			</h1>
+
+			
 			<h2 class="heading-large">
 				Individualised Learner Records (<abbr title="Individualised Learner Record">ILR</abbr>)
 			</h2>
-				
-			<p>
-				{% if data['file-upload'] and  'invalid' in data['file-upload'] %}
-				<a href="#">1 report to review with errors</a>
-				{% elif data['file-upload'] and  'valid' in data['file-upload'] %}
-				<a href="#">1 report to review without errors</a>
-				{% else %}
-				<a href="/submit-ilr" class="button-secondary">Submit an ILR file</a>
-				{% endif %}
-			</p>
+			
 			<p><a href="#">View previous ILR submissions</a></p>
 			<p><a href="#">ILR reports</a></p>
+				
+			{% if not data['file-upload'] %}
+			<p class="notice">
+				<i class="icon icon-important">
+					<span class="visually-hidden">Warning</span>
+				</i>
+				<strong class="bold-small">
+					You haven't submitted an ILR file for Return period 6 (R06) yet.
+				</strong>
+			</p>
+			{% elif data['file-upload'] and 'invalid' in data['file-upload'] %}
+			<a href="#" class="bold">1 report to review with errors</a>
+			{% elif data['file-upload'] and 'invalid' not in data['file-upload'] %}
+			<a href="#" class="bold">1 report to review without errors</a>
+			{% endif %}
+				
+			<p>
+				<form action="/submit-ilr">
+					<input type="hidden" value="v3" name="hub-version">
+					<input type="submit" class="button" value="Submit an ILR file">
+				</form>
+			</p>
+			{% if data['file-upload'] %}
+			<p class="font-xsmall">Last file uploaded by you on 8th January 2018 at 5.42pm</p>
+			{% endif %}
 			
 			<hr>
 			
@@ -70,7 +92,4 @@ ESFA Hub
 		</div>
 	</div>
 </main>
-
 {% endblock %}
-
-

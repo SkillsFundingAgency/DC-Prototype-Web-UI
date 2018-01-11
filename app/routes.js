@@ -11,6 +11,11 @@ router.get('/submit-ilr', function (req, res) {
   res.render('submit-ilr')
 })
 
+// Route index page
+router.get('/submission-complete', function (req, res) {
+  res.render('submission-complete-v1')
+})
+
 
 // Branching
 router.get('/examples/over-18', function (req, res) {

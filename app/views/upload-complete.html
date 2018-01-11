@@ -45,7 +45,11 @@ Submit an ILR
 			<h2 class="heading-medium">Submit your ILR file</h2>
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 			<input type="text" name="file-name" id="file-name" class="hidden" value="{{ data['file-upload-name'] }}">
-	        <p><a class="button" href="submission-complete" role="button">Confirm and submit file</a></p>
+	        <p>
+				<form action="submission-complete-v1">
+					<input type="submit" class="button" role="button" value="Confirm and submit file">
+				</form>
+			</p>
 			
 		</div>
 	</div>
