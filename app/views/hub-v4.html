@@ -13,13 +13,7 @@ ESFA Hub
 <main id="content" role="main">
 	{% include 'includes/phase_banner_alpha.html' %}
 	<div class="grid-row">
-		<div class="column-two-thirds">			
-			<h1 class="heading-xlarge">			
-				Cambridge College
-				<span class="heading-secondary">UKPRN: 10008189</span>
-			</h1>
-
-			
+		<div class="column-two-thirds">					
 			<h2 class="heading-large">
 				Individualised Learner Records (<abbr title="Individualised Learner Record">ILR</abbr>)
 			</h2>
@@ -44,7 +38,7 @@ ESFA Hub
 				
 			<p>
 				<form action="/submit-ilr">
-					<input type="hidden" value="v3" name="hub-version">
+					<input type="hidden" value="v4" name="hub-version">
 					<input type="submit" class="button" value="Submit an ILR file">
 				</form>
 			</p>
@@ -54,6 +48,7 @@ ESFA Hub
 			
 			<hr>
 			
+			{% if data['features'] and 'feature-eas' in data['features'] %}
 			<h2 class="heading-large">
 				Earnings adjustment statements (<abbr title="Earnings adjustment statement">EAS</abbr>)
 			</h2>
@@ -62,6 +57,7 @@ ESFA Hub
 			<p><a href="#">EAS reports</a></p>
 			
 			<hr>
+			{% endif %}
 			
 			<h2 class="heading-large">
 				Learning aims
@@ -84,8 +80,28 @@ ESFA Hub
 		</div>
 		
 		<div class="column-one-third">
-			{% include 'includes/return_period_info.html' %}
+			<aside>
+				<br>
+				<h1 class="heading-small">			
+					{% if data['provider-name'] %}
+					{{ data['provider-name'] }}
+					{% else %}
+					Cambridge College
+					{% endif %}<br>
+					<span class="font-xsmall">
+						(UKPRN: {% if data['ukprn-number'] %}{{ data['ukprn-number'] }}{% else %}10008273{% endif %})
+					</span>
+				</h1>
+				<p class="font-xsmall bold">Welcome, {% if data['user-name'] %}{{ data['user-name'] }}{% else %}Ann Smith{% endif %}</p>
+				<ul class="font-xsmall">
+					<li><a href="/hub-v4" class="active">Hub Home</a></li>
+					<li><a href="#">Manage your account</a></li>
+					<li><a href="#">Log out</a></li>
+				</ul>
+				</aside>
 			
+			{% include 'includes/return_period_info.html' %}
+			<hr>
 			<h3 class="heading-medium">
 				Latest information 
 				<div class="font-xsmall">12th December 2017</div>

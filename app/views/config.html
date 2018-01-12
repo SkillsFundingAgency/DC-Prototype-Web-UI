@@ -1,0 +1,105 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Submit an ILR - GOV.UK
+{% endblock %}
+
+{% block service_name %}
+Submit an ILR
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+	{% include 'includes/phase_banner_alpha.html' %}
+	
+	<div class="grid-row">
+		<div class="column-two-thirds">
+			<h1 class="heading-large">
+				Prototype configurator
+			</h1>
+	  
+			<p>Use this page to configure user settings.</p>
+			
+			<form id="save-config" action="/config">
+			
+				<h3 class="heading-medium">User details</h3>
+				<div class="form-group">
+					<label class="form-label" for="user-name">User name</label>
+					<input class="form-control" id="user-name" type="text" name="user-name" value="{{ data['user-name'] }}">
+				</div>
+			
+				<hr>
+			
+				<div class="form-group">
+					<label class="form-label" for="provider-name">Provider name</label>
+					<input class="form-control" id="provider-name" type="text" name="provider-name" value="{{ data['provider-name'] }}">
+				</div>
+			
+				<div class="form-group">
+					<label class="form-label" for="ukprn-number">UKPRN number</label>
+					<input class="form-control" id="ukprn-number" type="tel" name="ukprn-number" value="{{ data['ukprn-number'] }}">
+				</div>
+				
+				<div class="form-group">
+					<fieldset>
+						<legend>
+							<h3 class="heading-medium">Features</h3>
+							<span class="body-text">Select the features shown on the Hub</span>
+						</legend>
+
+						<div class="multiple-choice" data-target="ilr-config">
+							<input id="feature-1" name="features" type="checkbox" value="feature-1">
+							<label for="feature-1">ILR</label>
+						</div>
+						<div class="panel panel-border-narrow js-hidden" id="ilr-config">
+							<div class="multiple-choice">
+								<input id="ilr-submitted" type="checkbox" name="ilr-submitted" value="Yes">
+								<label for="ilr-submitted">The user has submitted an ILR file already</label>
+							</div>
+						</div>
+				
+						<div class="multiple-choice">
+							<input id="feature-eas" name="features" type="checkbox" value="feature-eas" checked>
+							<label for="feature-eas">EAS</label>
+						</div>
+				
+						<div class="multiple-choice">
+							<input id="feature-1" name="features" type="checkbox" value="feature-1">
+							<label for="feature-1">Q???</label>
+						</div>
+				
+						<div class="multiple-choice">
+							<input id="feature-1" name="features" type="checkbox" value="feature-1">
+							<label for="feature-1">Learning aims</label>
+						</div>
+					</fieldset>
+				</div>
+				
+				<div class="form-group">
+					<label class="form-label" for="hub-version">Hub version</label>
+					<select class="form-control" id="hub-version" name="hub-version" >						
+						<option value="v1"{% if data['hub-version'] and data['hub-version'] == 'v1' %} selected{% endif %}>Version 1</option>
+						<option value="v2"{% if data['hub-version'] and data['hub-version'] == 'v2' %} selected{% endif %}>Version 2</option>
+						<option value="v3"{% if data['hub-version'] and data['hub-version'] == 'v3' %} selected{% endif %}>Version 3</option>
+						<option value="v4"{% if data['hub-version'] and data['hub-version'] == 'v4' %} selected{% endif %}>Version 4</option>
+					</select>
+				</div>
+			
+				<div class="form-group">
+					<input type="submit" class="button-secondary" value="Save settings">
+				</div>
+			</form>
+			
+			<hr>
+			
+			<h3 class="heading-small">Ready to go?</h3>
+			<p>Once you've configured the settings and saved, the prototype should be configured.</p>
+			<p>
+				<a href="/hub-{{data['hub-version']}}" class="button button-start">Go to the hub</a>
+			</p>
+		</div>
+	</div>
+</main>
+
+{% endblock %}

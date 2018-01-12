@@ -6,16 +6,17 @@ router.get('/', function (req, res) {
   res.render('hub-v1')
 })
 
-// Route index page
 router.get('/submit-ilr', function (req, res) {
   res.render('submit-ilr')
 })
 
-// Route index page
 router.get('/submission-complete', function (req, res) {
   res.render('submission-complete-v1')
 })
 
+router.get('/prototype-admin/config', function (req, res) {
+  res.render('config')
+})
 
 // Branching
 router.get('/examples/over-18', function (req, res) {
