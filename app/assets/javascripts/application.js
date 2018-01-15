@@ -31,5 +31,5 @@ $(document).ready(function () {
 		setTimeout(function () {
 			$('#upload-select').submit()
 		}, 3000);
-	})
+	});
 })

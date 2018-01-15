@@ -19,26 +19,26 @@ Submit an ILR
 				Prototype configurator
 			</h1>
 	  
-			<p>Use this page to configure user settings.</p>
+			<p>Use this page to configure how the prototype will work.</p>
 			
 			<form id="save-config" action="/config">
 			
 				<h3 class="heading-medium">User details</h3>
 				<div class="form-group">
 					<label class="form-label" for="user-name">User name</label>
-					<input class="form-control" id="user-name" type="text" name="user-name" value="{{ data['user-name'] }}">
+					<input class="form-control" id="user-name" type="text" name="user-name" value="{{ data['user-name'] or "J Jones" }}">
 				</div>
 			
 				<hr>
 			
 				<div class="form-group">
 					<label class="form-label" for="provider-name">Provider name</label>
-					<input class="form-control" id="provider-name" type="text" name="provider-name" value="{{ data['provider-name'] }}">
+					<input class="form-control" id="provider-name" type="text" name="provider-name" value="{{ data['provider-name'] or "Coventry City College" }}">
 				</div>
 			
 				<div class="form-group">
 					<label class="form-label" for="ukprn-number">UKPRN number</label>
-					<input class="form-control" id="ukprn-number" type="tel" name="ukprn-number" value="{{ data['ukprn-number'] }}">
+					<input class="form-control" id="ukprn-number" type="tel" name="ukprn-number" value="{{ data['ukprn-number'] or "10003928" }}">
 				</div>
 				
 				<div class="form-group">
@@ -49,7 +49,7 @@ Submit an ILR
 						</legend>
 
 						<div class="multiple-choice" data-target="ilr-config">
-							<input id="feature-1" name="features" type="checkbox" value="feature-1">
+							<input id="feature-1" name="features" type="checkbox" value="feature-1" checked>
 							<label for="feature-1">ILR</label>
 						</div>
 						<div class="panel panel-border-narrow js-hidden" id="ilr-config">
@@ -70,11 +70,12 @@ Submit an ILR
 						</div>
 				
 						<div class="multiple-choice">
-							<input id="feature-1" name="features" type="checkbox" value="feature-1">
+							<input id="feature-1" name="features" type="checkbox" value="feature-1" checked>
 							<label for="feature-1">Learning aims</label>
 						</div>
 					</fieldset>
 				</div>
+
 				
 				<div class="form-group">
 					<label class="form-label" for="hub-version">Hub version</label>
@@ -85,18 +86,19 @@ Submit an ILR
 						<option value="v4"{% if data['hub-version'] and data['hub-version'] == 'v4' %} selected{% endif %}>Version 4</option>
 					</select>
 				</div>
-			
-				<div class="form-group">
-					<input type="submit" class="button-secondary" value="Save settings">
-				</div>
+				
+				<input type="submit" class="button-secondary" value="Save settings">
 			</form>
+		</div>
 			
-			<hr>
-			
-			<h3 class="heading-small">Ready to go?</h3>
-			<p>Once you've configured the settings and saved, the prototype should be configured.</p>
+		<div class="column-one-third">
+			<h3 class="heading-medium">Ready to go?</h3>
+			<p>Once you've configured the settings and saved any changes, the prototype should be configured.</p>
 			<p>
-				<a href="/hub-{{data['hub-version']}}" class="button button-start">Go to the hub</a>
+				<a href="/hub-{{ data['hub-version'] or "v4"}}" class="button button-start">Go to the hub</a>
+			</p>
+			<p class="panel panel-border-wide">
+				<span class="bold">Important:</span> Make sure you've saved any changes otherwise the prototype won't be configured properly.
 			</p>
 		</div>
 	</div>

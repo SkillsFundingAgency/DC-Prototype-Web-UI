@@ -14,13 +14,15 @@ Submit an ILR
 	{% include 'includes/phase_banner_alpha.html' %}
 	
 	<div class="grid-row">
-		<div class="column-two-thirds">			
-			<h1 class="heading-large">
-				ILR submission received
-			</h1>
+		<div class="column-two-thirds">
+			<div class="govuk-box-highlight">
+				<h1 class="heading-large">
+					ILR submission received
+				</h1>
 			
-			<p class="lede">Your ILR file submission has been uploaded and added to our queue for processing.</p>
-			<p class="lede">The reference number for your submission is <span class="bold">HDJ2123F</span>.</p>
+				<p>Your ILR file has been uploaded and added to our queue for processing.</p>
+				<p>The reference number for your submission is <span class="bold">HDJ2123F</span>.</p>
+			</div>		
 			
 			<h2 class="heading-medium">What happens next?</h2>
 			{% if data['email-confirmation'] %}<p>You will receive an email notification once your file has been processed.</p>{% endif %}

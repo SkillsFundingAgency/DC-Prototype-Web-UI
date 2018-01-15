@@ -23,6 +23,7 @@ Submit an ILR
 				Review and submit your <abbr title="Individual Learner Record">ILR</abbr> file
 			</h1>
 			
+			<p>Check you have uploaded the correct ILR file.</p>
 			
 			<table>
 				<caption class="heading-medium">ILR file details</caption>
@@ -43,14 +44,20 @@ Submit an ILR
 			</table>
 			
 			<h2 class="heading-medium">Submit your ILR file</h2>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-			<input type="text" name="file-name" id="file-name" class="hidden" value="{{ data['file-upload-name'] }}">
-	        <p>
-				<form action="submission-complete-v1">
-					<input type="submit" class="button" role="button" value="Confirm and submit file">
-				</form>
-			</p>
+			<p>After confirming and submitting your uploaded file, it will be added to a queue for processing.</p>
 			
+			<form action="submission-complete-v2">				
+				<div class="form-group">
+					<div class="multiple-choice">
+						<input id="email-confirmation" name="email-confirmation" type="checkbox" value="email-confirmation" checked>
+						<label for="email-confirmation">Email me when the ILR file has been processed</label>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<input type="submit" class="button" role="button" value="Confirm and submit file">
+				</div>
+			</form>
 		</div>
 	</div>
 </main>

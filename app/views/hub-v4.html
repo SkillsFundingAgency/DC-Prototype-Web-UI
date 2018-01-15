@@ -19,7 +19,7 @@ ESFA Hub
 			</h2>
 			
 			<p><a href="#">View previous ILR submissions</a></p>
-			<p><a href="#">ILR reports</a></p>
+			<p><a href="/ilr-reports">ILR reports</a></p>
 				
 			{% if not data['file-upload'] %}
 			<p class="notice">
@@ -48,7 +48,7 @@ ESFA Hub
 			
 			<hr>
 			
-			{% if data['features'] and 'feature-eas' in data['features'] %}
+			{% if not data['features'] or 'feature-eas' in data['features'] %}
 			<h2 class="heading-large">
 				Earnings adjustment statements (<abbr title="Earnings adjustment statement">EAS</abbr>)
 			</h2>
