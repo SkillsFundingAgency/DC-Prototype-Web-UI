@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Submit an ILR - GOV.UK
+{% endblock %}
+
+{% block service_name %}
+Submit an ILR
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+	{% include 'includes/phase_banner_alpha.html' %}
+	
+	<div class="grid-row">
+		<div class="column-two-thirds">
+			<h2 class="heading-large">
+				<abbr title="Individualised Learner Record">ILR</abbr> submission history
+			</h2>
+			
+			
+			<table class="table-font-xsmall">
+				<caption class="heading-medium">2017&ndash;2018</caption>
+				<thead>
+					<tr>
+						<th>Return period</th>
+						<th>Status</th>
+						<th>Date</th>
+					</tr>
+				</thead>
+
+				<tbody>				
+					<tr>
+						<td><a href="#">Return period 5</a></td>
+						<td>Closed</td>
+						<td>1st &ndash; 30th August 2017</td>
+					</tr>
+
+					<tr>
+						<td><a href="#">Return period 4</a></td>
+						<td>Closed</td>
+						<td>23rd August 2017</td>
+					</tr>
+					
+					<tr>
+						<td><a href="#">Return period 3</a></td>
+						<td>Closed</td>
+						<td>23rd August 2017</td>
+					</tr>
+					
+					<tr>
+						<td><a href="#">Return period 2</a></td>
+						<td>Closed</td>
+						<td>23rd August 2017</td>
+					</tr>
+					
+					<tr>
+						<td><a href="#">Return period 1</a></td>
+						<td>Closed</td>
+						<td>23rd August 2017</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+		<div class="column-one-third">
+			
+			{% include 'includes/return_period_info.html' %}
+			<hr>
+			<h3 class="heading-medium">
+				Latest information 
+				<div class="font-xsmall">12th December 2017</div>
+			</h3>
+			<p>Qualification achievement rates for 2016 to 2017 - provisional data now available.</p>
+			<p>Guidance on how to use your data extracts can be found here.</p>
+			<p><a href="#">See all announcements</a></p>
+		</div>
+	</div>
+</main>
+
+{% endblock %}
