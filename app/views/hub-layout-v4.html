@@ -19,7 +19,6 @@ ESFA Hub
 			</h2>
 			
 			<p><a href="/ilr-submission-history">View previous ILR submissions</a></p>
-			<p><a href="/ilr-reports">ILR reports</a></p>
 				
 			{% if not data['file-upload'] %}
 			<p class="notice">
@@ -30,8 +29,9 @@ ESFA Hub
 					You haven't submitted an ILR file for Return period 6 (R06) yet.
 				</strong>
 			</p>
-			{% elif data['file-upload'] and 'invalid' in data['file-upload'] %}
-			<a href="#" class="bold">1 report to review with errors</a>
+			{% elif data['file-upload'] and not data['ilr-submitted'] %}
+			<p class="bold">Your <a href="#">latest ILR submission</a> has been processed
+			</p>
 			{% elif data['file-upload'] and 'invalid' not in data['file-upload'] %}
 			<a href="#" class="bold">1 report to review without errors</a>
 			{% endif %}

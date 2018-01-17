@@ -13,7 +13,11 @@ router.get('/submit-ilr', function (req, res) {
 })
 
 router.get('/submission-complete', function (req, res) {
-	res.render('submission-complete-v1')
+	res.render('submission-complete-v3')
+})
+
+router.get('/upload-complete', function (req, res) {
+	res.render('upload-complete-v2')
 })
 
 router.get('/prototype-admin/config', function (req, res) {
