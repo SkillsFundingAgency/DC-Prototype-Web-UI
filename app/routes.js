@@ -26,54 +26,54 @@ router.get('/prototype-admin/config', function (req, res) {
 router.get('/ilr-details', function (req, res) {
 	var reports = [
 		{
-			title: "16-19 Funding Claim Report 20180104-192816",
+			title: "16-19 Funding Claim Report",
 			filetype: "PDF",
 			size: "20kB"
 		},
 		{
-			title: "16-19 Summary of Funding by Student Report 20180104-192816",
+			title: "16-19 Summary of Funding by Student Report",
 			filetype: "CSV",
 			size: "20kB"
 		},
 		{
-			title: "ALLB Occupancy Report 20180104-192816",
+			title: "ALLB Occupancy Report",
 			filetype: "CSV",
 			size: "20kB"
 		},
 		{
-			title: "Adult Funding Claim Report 20180104-192816 (CSV)",
+			title: "Adult Funding Claim Report (CSV)",
 			filetype: "CSV",
 			size: "20kB"
 		},
 		{
-			title: "Adult Funding Claim Report 20180104-192816 (XLS)",
+			title: "Adult Funding Claim Report (XLS)",
 			filetype: "XLS",
 			size: "20kB"
 		},
 		{
-			title: "Apps Indicative Earnings Report 20180104-193852",
+			title: "Apps Indicative Earnings Report",
 			filetype: "CSV",
 			size: "20kB"
 		},
 		{
-			title: "CL Summary of Learners by Non-Single Budget Category Report 20180104-192816",
+			title: "CL Summary of Learners by Non-Single Budget Category Report",
 			filetype: "PDF",
 			size: "20kB"
 		},
 		
-// 			ESF Aim and Deliverable Report 20180104-192816.csv
+// 			ESF Aim and Deliverable Report.csv
 // 			ESF Funding Summary Report 20180104-193834.xls
-// 			Funding Summary Report 20180104-192816.xls
-// 			High Needs Students Detail Report 20180104-192816.csv
-// 			High Needs Students Summary Report 20180104-192816.pdf
-// 			Main Occupancy Report 20180104-192816.csv
-// 			Maths and English Report 20180104-192816.csv
+// 			Funding Summary Report.xls
+// 			High Needs Students Detail Report.csv
+// 			High Needs Students Summary Report.pdf
+// 			Main Occupancy Report.csv
+// 			Maths and English Report.csv
 // 			Non-Contracted Apprenticeships Activity Report 20180104-193854.csv
-// 			Summary of Funding Model 35 Funding Report 20180104-192816.csv
-// 			Summary of Funding Model 35 Funding Report 20180104-192816.pdf
-// 			Summary of Funding Model 35 Funding by Learner Report 20180104-192816.csv
-// 			Trailblazer Apprenticeships Employer Incentives Report 20180104-192816.csv
-// 			Trailblazer Apprenticeships Occupancy Report 20180104-192816.csv
+// 			Summary of Funding Model 35 Funding Report.csv
+// 			Summary of Funding Model 35 Funding Report.pdf
+// 			Summary of Funding Model 35 Funding by Learner Report.csv
+// 			Trailblazer Apprenticeships Employer Incentives Report.csv
+// 			Trailblazer Apprenticeships Occupancy Report.csv
 	];
 	res.render('ilr-details', { reports: reports })
 })
