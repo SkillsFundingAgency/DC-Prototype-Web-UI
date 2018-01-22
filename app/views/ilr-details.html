@@ -28,8 +28,22 @@ ILR Submission History
 				Return period {{ data['ilr-period'] }}
 			</h1>
 			
-			<p>The ILR file for Return period {{ data['ilr-period'] }} has now been processed.</p>
+			{% if not data['ilr-submission-status'] %}
+			<p class="notice">
+				<i class="icon icon-important">
+					<span class="visually-hidden">Warning</span>
+				</i>
+				<strong class="bold-small">
+					You haven't submitted an ILR file for Return period 6 (R06) yet.
+				</strong>
+			</p>
+			{% elif data['ilr-submission-status'] == 'processing' %}
+			<p class="bold">Your <a href="/ilr-details?ilr-period=6&ilr-year=2017%E2%80%932018">latest ILR submission</a> is being processed</p>
+			{% elif data['ilr-submission-status'] == 'processed' %}
+			<p class="bold">Your <a href="ilr-details?ilr-period=6&ilr-year=2017%E2%80%932018">latest ILR submission</a> has been processed</p>
+			{% endif %}
 
+			{% if data['ilr-submission-status'] %}
 			<details>
 				<summary><span class="summary">View submission history</span></summary>
 
@@ -48,21 +62,29 @@ ILR Submission History
 					</p>
 				</div>
 			</details>
+			{% endif %}
 			
 			<hr>
-				
+
 			<div class="grid-row">
 				<h2 class="heading-medium clearfix">
 					<div class="pull-left">
+						{% if not data['ilr-submission-status'] or data['ilr-submission-status'] == 'processing'%}
+						No reports available
+						{% elif data['ilr-submission-status'] == 'processed' %}
 						21 Reports
+						{% endif %}
 					</div>
-				
+
 					<div class="pull-right">
+						{% if data['ilr-submission-status'] == 'processed' %}
 						<a href="#" class="font-small">Download all reports</a>
+						{% endif %}
 					</div>
 				</h2>
 			</div>
 			
+			{% if data['ilr-submission-status'] == 'processed' %}
 			{% for report in reports %}
 			<details>
 				<summary><span class="summary">{{ report.title }}</span></summary>
@@ -77,6 +99,7 @@ ILR Submission History
 				</div>
 			</details>
 			{% endfor %}
+			{% endif %}
 		</div>
 		
 		<div class="column-one-third">
