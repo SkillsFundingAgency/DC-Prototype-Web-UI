@@ -30,15 +30,26 @@ ESFA Hub
 				</strong>
 			</p>
 			{% elif data['ilr-submission-status'] == 'processing' %}
-			<p class="bold">Your <a href="/ilr-details?ilr-period=6&ilr-year=2017%E2%80%932018">latest ILR submission</a> is being processed</p>
+			<p class="bold">Your <a href="/ilr-details?ilr-period=6&ilr-year=2017%E2%80%932018">latest ILR submission</a> is being processed.</p>
 			{% elif data['ilr-submission-status'] == 'processed' %}
-			<p class="bold">Your <a href="ilr-details?ilr-period=6&ilr-year=2017%E2%80%932018">latest ILR submission</a> has been processed</p>
+			<p class="notice">
+				<i class="icon icon-important">
+					<span class="visually-hidden">Warning</span>
+				</i>
+				<strong class="bold-small">
+					{% if '01-B' in data['file-upload'] %}
+					Your <a href="ilr-details?ilr-period=6&ilr-year=2017%E2%80%932018">latest ILR submission</a> has been processed. 
+					{% else %}
+					Your <a href="ilr-details?ilr-period=6&ilr-year=2017%E2%80%932018">latest ILR submission</a> contains errors.
+					{% endif %}
+				</strong>
+			</p>
 			{% endif %}
 
 			<p>
 				<form action="/submit-ilr">
 					<input type="hidden" value="v4" name="hub-version">
-					<input type="submit" class="button" value="Submit an ILR file">
+					<input type="submit" class="button" value="TEXT HERE">
 				</form>
 			</p>
 			{% if data['file-upload'] %}
@@ -63,8 +74,9 @@ ESFA Hub
 			</h2>
 				
 			<p><a href="#" class="button-secondary">Find a Learning aim</a></p>
-			
-			<hr> -->
+			-->
+
+			<hr>
 			
 			<h2 class="heading-medium">Other resources</h2>
 

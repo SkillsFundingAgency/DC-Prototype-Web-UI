@@ -38,9 +38,22 @@ ILR Submission History
 				</strong>
 			</p>
 			{% elif data['ilr-submission-status'] == 'processing' %}
-			<p class="bold">Your <a href="/ilr-details?ilr-period=6&ilr-year=2017%E2%80%932018">latest ILR submission</a> is being processed</p>
+			<p class="bold">Your <a href="/ilr-details?ilr-period=6&ilr-year=2017%E2%80%932018">latest ILR submission</a> is being processed.</p>
+			<p>There are 12 files in front of yours.</p>
+			<p>Reports should be ready in around 3 hours and you will receive an email when your reports are ready.</p>
 			{% elif data['ilr-submission-status'] == 'processed' %}
-			<p class="bold">Your <a href="ilr-details?ilr-period=6&ilr-year=2017%E2%80%932018">latest ILR submission</a> has been processed</p>
+			<p class="notice">
+				<i class="icon icon-important">
+					<span class="visually-hidden">Warning</span>
+				</i>
+				<strong class="bold-small">
+					{% if '01-B' in data['file-upload'] %}
+					Your <a href="ilr-details?ilr-period=6&ilr-year=2017%E2%80%932018">latest ILR submission</a> has been processed. 
+					{% else %}
+					Your <a href="ilr-details?ilr-period=6&ilr-year=2017%E2%80%932018">latest ILR submission</a> contains errors.
+					{% endif %}
+				</strong>
+			</p>
 			{% endif %}
 
 			{% if data['ilr-submission-status'] %}
