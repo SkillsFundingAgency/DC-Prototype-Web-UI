@@ -11,16 +11,16 @@ ESFA Hub
 {% block content %}
 
 <main id="content" role="main">
-	{% include 'includes/phase_banner_alpha.html' %}
+	{% include 'includes/phase_banner.html' %}
 	<div class="grid-row">
-		<div class="column-two-thirds">			
+		<div class="column-two-thirds">					
 			<h2 class="heading-large">
 				Individualised Learner Records (<abbr title="Individualised Learner Record">ILR</abbr>)
 			</h2>
 			
 			<p><a href="/ilr-submission-history">View previous ILR submissions</a></p>
-				
-			{% if not data['file-upload'] %}
+
+			{% if not data['ilr-submission-status'] %}
 			<p class="notice">
 				<i class="icon icon-important">
 					<span class="visually-hidden">Warning</span>
@@ -29,24 +29,34 @@ ESFA Hub
 					You haven't submitted an ILR file for Return period 6 (R06) yet.
 				</strong>
 			</p>
-			{% elif data['file-upload'] and not data['ilr-submitted'] %}
-			<p class="bold">Your <a href="#">latest ILR submission</a> has been processed
+			{% elif data['ilr-submission-status'] == 'processing' %}
+			<p class="bold">Your <a href="/ilr-details?ilr-period=6&ilr-year=2017%E2%80%932018">latest ILR submission</a> is being processed.</p>
+			{% elif data['ilr-submission-status'] == 'processed' %}
+			<p class="notice">
+				<i class="icon icon-important">
+					<span class="visually-hidden">Warning</span>
+				</i>
+				<strong class="bold-small">
+					{% if '01-B' in data['file-upload'] %}
+					Your <a href="ilr-details?ilr-period=6&ilr-year=2017%E2%80%932018">latest ILR submission</a> has been processed. 
+					{% else %}
+					Your <a href="ilr-details?ilr-period=6&ilr-year=2017%E2%80%932018">latest ILR submission</a> contains errors.
+					{% endif %}
+				</strong>
 			</p>
-			{% elif data['file-upload'] and 'invalid' not in data['file-upload'] %}
-			<a href="#" class="bold">1 report to review without errors</a>
 			{% endif %}
-				
+
 			<p>
 				<form action="/submit-ilr">
 					<input type="hidden" value="v4" name="hub-version">
-					<input type="submit" class="button" value="Submit an ILR file">
+					{% include 'includes/submit-ilr-button-v1.html' %} 
 				</form>
 			</p>
 			{% if data['file-upload'] %}
 			<p class="font-xsmall">Last file uploaded by you on 8th January 2018 at 5.42pm</p>
 			{% endif %}
 			
-			<hr>
+			<!-- <hr>
 			
 			{% if not data['features'] or 'feature-eas' in data['features'] %}
 			<h2 class="heading-large">
@@ -64,17 +74,18 @@ ESFA Hub
 			</h2>
 				
 			<p><a href="#" class="button-secondary">Find a Learning aim</a></p>
-			
+			-->
+
 			<hr>
 			
 			<h2 class="heading-medium">Other resources</h2>
 
 			<ul class="list list-bullet">
 				<li>
-					<a href="https://www.gov.uk/guidance/sfa-funding-rules">Funding Rules</a>
+					<!-- <a href="https://www.gov.uk/guidance/sfa-funding-rules">Funding Rules</a> -->
 				</li>
 				<li>
-					<a href="https://www.gov.uk/government/collections/individualised-learner-record-ilr">The ILR Returns Calendar</a>
+					<!-- <a href="https://www.gov.uk/government/collections/individualised-learner-record-ilr">The ILR Returns Calendar</a> -->
 				</li>
 			</ul>
 		</div>
@@ -98,7 +109,7 @@ ESFA Hub
 					<li><a href="#">Manage your account</a></li>
 					<li><a href="#">Log out</a></li>
 				</ul>
-				</aside>
+			</aside>
 			
 			{% include 'includes/return_period_info.html' %}
 			<hr>

@@ -11,7 +11,7 @@ Submit an ILR
 {% block content %}
 
 <main id="content" role="main">
-	{% include 'includes/phase_banner_alpha.html' %}
+	{% include 'includes/phase_banner.html' %}
 	
 	<div class="back">
 		<a class="back-to-previous link-back" href="javascript:history.back()">Back<span class="visuallyhidden"> to the previous question</span></a>
@@ -27,18 +27,20 @@ Submit an ILR
 			
 			<p>You are uploading an ILR file for <span class="bold">Return period 6 (R06)</span>.</p>
 			
-			<div id="uploading-progress" class="hidden">
-				<img id="loading-spinner" src="/public/images/loading-spinner.gif" width="40px">
-				<p>Uploading <span id="file-name"></span></p>
-				<p>Estimated time remaining: 14 minutes.</p>
-			</div>
+			<div id="upload-v1">
+				<div id="uploading-progress" class="hidden">
+					<img id="loading-spinner" src="/public/images/loading-spinner.gif" width="40px">
+					<p>Uploading <span id="file-name"></span></p>
+					<p>Estimated time remaining: 14 minutes.</p>
+				</div>
 				
-			<form id="upload-select" action="upload-complete">
-				<label for="upload" class="button photo-upload-label" role="button">
-					<span id="photo-label-text" class="">Upload ILR file</span>
-				</label>
-				<input accept="text/xml" id="upload" class="choose-file" name="file-upload" aria-controls="progress-container" aria-required="true" type="file">
-			</form>
+				<form id="upload-select" action="upload-complete">
+					<label for="upload" class="button photo-upload-label" role="button">
+						<span id="photo-label-text" class="">Upload ILR file</span>
+					</label>
+					<input accept="text/xml" id="upload" class="choose-file" name="file-upload" aria-controls="progress-container" aria-required="true" type="file">
+				</form>
+			</div>
 		</div>
 	</div>
 </main>

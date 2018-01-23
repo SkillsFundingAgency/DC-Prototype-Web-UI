@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Submit an ILR - GOV.UK
+{% endblock %}
+
+{% block service_name %}
+Submit an ILR
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+	{% include 'includes/phase_banner.html' %}
+	
+	<div class="back">
+		<a class="back-to-previous link-back" href="javascript:history.back()">Back<span class="visuallyhidden"> to the previous question</span></a>
+	</div>
+	
+	<div class="grid-row">
+		<div class="column-two-thirds">
+			<h1 class="heading-large">
+				Upload an <abbr title="Individual Learner Record">ILR</abbr> file
+			</h1>
+			
+			<p>Use this page to upload an <abbr title="Individual Learner Record">ILR</abbr> file. <abbr title="Individual Learner Record">ILR</abbr> files must be in the <abbr title="Extensible Markup Language">XML</abbr> file format.</p>
+			
+			<p>You are uploading an ILR file for <span class="bold">Return period 6 (R06)</span>.</p>
+
+			<div id="upload-v2">
+				<form id="upload-select" action="upload-complete">
+					<label for="upload" class="button photo-upload-label" role="button">
+						<span id="photo-label-text" class="">Select ILR file</span>
+					</label>
+					<input accept="text/xml" id="upload" class="choose-file" name="file-upload" aria-controls="progress-container" aria-required="true" type="file">
+				</form>
+
+				<div id="file-details" class="hidden">
+					<table class="table-font-xsmall">
+						<tbody>
+							<tr>
+								<td><span class="bold">File name</span></td>
+								<td class="file-name"></td>
+								<td><a id="change-file" href="#change">Change</a></td>
+							</tr>
+							<tr>
+								<td><span class="bold">File size</span></td>
+								<td>209.8kb</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td><span class="bold">Date and time</span></td>
+								<td>28 April 2018 at 10.38am</td>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
+
+					<p id="submit-file-section">
+						<form action="submission-complete" id="confirm-upload">
+							<div class="form-group">
+								<div class="multiple-choice">
+									<input id="email-confirmation" name="email-confirmation" type="checkbox" value="email-confirmation" checked>
+									<label for="email-confirmation">Email me when the ILR file has been processed</label>
+								</div>
+							</div>
+
+							<input type="hidden" name="ilr-submission-status" value="processing">
+
+							<button class="button" name="confirm-upload" type="submit">Confirm and upload ILR file</button>
+						</form>
+					</p>
+				</div>
+
+				<div id="uploading-progress" class="hidden">
+					<img id="loading-spinner" src="/public/images/loading-spinner.gif" width="40px">
+					<p>Uploading <span class="file-name"></span></p>
+					<p>Estimated time remaining: 14 minutes.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+
+{% endblock %}

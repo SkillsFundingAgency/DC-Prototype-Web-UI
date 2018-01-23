@@ -10,8 +10,12 @@ router.get('/submit-ilr', function (req, res) {
 	res.render('submit-ilr')
 })
 
+router.get('/upload', function (req, res) {
+	res.render('upload-ilr-v2')
+})
+
 router.get('/submission-complete', function (req, res) {
-	res.render('submission-complete-v3')
+	res.render('submission-complete-v4')
 })
 
 router.get('/upload-complete', function (req, res) {
@@ -75,7 +79,7 @@ router.get('/ilr-details', function (req, res) {
 // 			Trailblazer Apprenticeships Employer Incentives Report.csv
 // 			Trailblazer Apprenticeships Occupancy Report.csv
 	];
-	res.render('ilr-details', { reports: reports })
+	res.render('ilr-details-v2', { reports: reports })
 })
 
 module.exports = router

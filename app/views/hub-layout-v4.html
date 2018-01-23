@@ -11,7 +11,7 @@ ESFA Hub
 {% block content %}
 
 <main id="content" role="main">
-	{% include 'includes/phase_banner_alpha.html' %}
+	{% include 'includes/phase_banner.html' %}
 	<div class="grid-row">
 		<div class="column-two-thirds">					
 			<h2 class="heading-large">
@@ -49,7 +49,7 @@ ESFA Hub
 			<p>
 				<form action="/submit-ilr">
 					<input type="hidden" value="v4" name="hub-version">
-					<input type="submit" class="button" value="TEXT HERE">
+					{% include 'includes/submit-ilr-button-v1.html' %}
 				</form>
 			</p>
 			{% if data['file-upload'] %}
