@@ -30,11 +30,10 @@ router.get('/prototype/version-info', function (req, res) {
 	res.render('prototype-admin/prototype-dashboard')
 })
 
-router.get('/prototype/', function (req, res) {
+router.get('/', function (req, res) {
 	res.render('prototype-admin/prototype-home')
 })
 
-// Route index page
 router.get('/ilr-details', function (req, res) {
 	var reports = [
 	{
@@ -73,20 +72,20 @@ router.get('/ilr-details', function (req, res) {
 		size: "20kB"
 	},
 
-// 			ESF Aim and Deliverable Report.csv
-// 			ESF Funding Summary Report 20180104-193834.xls
-// 			Funding Summary Report.xls
-// 			High Needs Students Detail Report.csv
-// 			High Needs Students Summary Report.pdf
-// 			Main Occupancy Report.csv
-// 			Maths and English Report.csv
-// 			Non-Contracted Apprenticeships Activity Report 20180104-193854.csv
-// 			Summary of Funding Model 35 Funding Report.csv
-// 			Summary of Funding Model 35 Funding Report.pdf
-// 			Summary of Funding Model 35 Funding by Learner Report.csv
-// 			Trailblazer Apprenticeships Employer Incentives Report.csv
-// 			Trailblazer Apprenticeships Occupancy Report.csv
-];
+	// 			ESF Aim and Deliverable Report.csv
+	// 			ESF Funding Summary Report 20180104-193834.xls
+	// 			Funding Summary Report.xls
+	// 			High Needs Students Detail Report.csv
+	// 			High Needs Students Summary Report.pdf
+	// 			Main Occupancy Report.csv
+	// 			Maths and English Report.csv
+	// 			Non-Contracted Apprenticeships Activity Report 20180104-193854.csv
+	// 			Summary of Funding Model 35 Funding Report.csv
+	// 			Summary of Funding Model 35 Funding Report.pdf
+	// 			Summary of Funding Model 35 Funding by Learner Report.csv
+	// 			Trailblazer Apprenticeships Employer Incentives Report.csv
+	// 			Trailblazer Apprenticeships Occupancy Report.csv
+	];
 	
 	res.render('ilr-details/ilr-details-v3', { reports: reports })
 })
