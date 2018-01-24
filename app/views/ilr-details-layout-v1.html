@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+ILR Submission History {{ data['ilr'] }}
+{% endblock %}
+
+{% block service_name %}
+ILR Submission History
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+	{% include 'includes/phase_banner.html' %}
+	
+	<div class="breadcrumbs">
+		<ol>
+			<li><a href="/">{{ data['provider-name'] or "Cambridge College" }}</a></li>
+			<li class="parent-breadcrumb"><a href="/ilr-submission-history">ILR submission history</a></li>
+			<li><a href="/ilr-details?ilr-period={{ data['ilr-period'] }}&ilr-year={{ data['ilr-year'] }}" class="breadcrumb-for-current-page">Return period {{ data['ilr-period'] }}</a></li>
+		</ol>
+	</div>
+	
+	<div class="grid-row">
+		<div class="column-two-thirds">
+			{% block page_content %}
+			{% endblock %}
+		</div>
+		
+		<div class="column-one-third">
+			{% block sidebar %}
+			
+			{% endblock %}
+		</div>
+	</div>
+</main>
+
+{% endblock %}

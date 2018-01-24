@@ -1,143 +1,116 @@
-{% extends "layout.html" %}
+{% extends "ilr-details-layout-v1.html" %}
 
-{% block page_title %}
-ILR Submission History {{ data['ilr'] }}
-{% endblock %}
+{% block page_content %}
+<h1 class="heading-large">
+	<span class="heading-secondary">{{ data['ilr-year'] }}</span>
+	Return period {{ data['ilr-period'] }}
+</h1>
 
-{% block service_name %}
-ILR Submission History
-{% endblock %}
+{% if not data['ilr-submission-status'] %}
+<p class="notice">
+	<i class="icon icon-important">
+		<span class="visually-hidden">Warning</span>
+	</i>
+	<strong class="bold-small">
+		You haven't submitted an ILR file for Return period 6 (R06) yet.
+	</strong>
+</p>
+{% elif data['ilr-submission-status'] == 'processing' %}
+<p class="bold">Your latest ILR submission is being processed.</p>
+<p>Estimated processing time is currently <span class="bold">around 3 hours</span>.</p>
+{% elif data['ilr-submission-status'] == 'processed' %}
+<p class="notice">
+	<i class="icon icon-important">
+		<span class="visually-hidden">Warning</span>
+	</i>
+	<strong class="bold-small">
+		{% if '01-B' in data['file-upload'] %}
+		Your latest ILR submission has been processed. 
+		{% else %}
+		Your latest ILR submission contains errors.
+		{% endif %}
+	</strong>
+</p>
+{% endif %}
 
-{% block content %}
+<p>
+	<form action="/submit-ilr">
+		<input type="hidden" value="v4" name="hub-version">
+		<!-- {% include 'includes/submit-ilr-button-v1.html' %} -->
+	</form>
+</p>
 
-<main id="content" role="main">
-	{% include 'includes/phase_banner.html' %}
-	
-	<div class="breadcrumbs">
-		<ol>
-			<li><a href="/">{{ data['provider-name'] or "Cambridge College" }}</a></li>
-			<li class="parent-breadcrumb"><a href="/ilr-submission-history">ILR submission history</a></li>
-			<li><a href="/ilr-details?ilr-period={{ data['ilr-period'] }}&ilr-year={{ data['ilr-year'] }}" class="breadcrumb-for-current-page">Return period {{ data['ilr-period'] }}</a></li>
-		</ol>
-	</div>
-	
-	<div class="grid-row">
-		<div class="column-two-thirds">
-			<h1 class="heading-large">
-				<span class="heading-secondary">{{ data['ilr-year'] }}</span>
-				Return period {{ data['ilr-period'] }}
-			</h1>
-			
-			{% if not data['ilr-submission-status'] %}
-			<p class="notice">
-				<i class="icon icon-important">
-					<span class="visually-hidden">Warning</span>
-				</i>
-				<strong class="bold-small">
-					You haven't submitted an ILR file for Return period 6 (R06) yet.
-				</strong>
-			</p>
-			{% elif data['ilr-submission-status'] == 'processing' %}
-			<p class="bold">Your latest ILR submission is being processed.</p>
-			<p>Estimated processing time is currently <span class="bold">around 3 hours</span>.</p>
-			{% elif data['ilr-submission-status'] == 'processed' %}
-			<p class="notice">
-				<i class="icon icon-important">
-					<span class="visually-hidden">Warning</span>
-				</i>
-				<strong class="bold-small">
-					{% if '01-B' in data['file-upload'] %}
-					Your latest ILR submission has been processed. 
-					{% else %}
-					Your latest ILR submission contains errors.
-					{% endif %}
-				</strong>
-			</p>
+<hr>
+
+<div class="grid-row">
+	<h2 class="heading-medium clearfix">
+		<div class="pull-left">
+			{% if not data['ilr-submission-status'] or data['ilr-submission-status'] == 'processing'%}
+			No reports available
+			{% elif data['ilr-submission-status'] == 'processed' and '01-B' in data['file-upload'] %}
+			21 Reports
+			{% else %}
+			11 error reports
 			{% endif %}
+		</div>
 
-			<p>
-				<form action="/submit-ilr">
-					<input type="hidden" value="v4" name="hub-version">
-					<!-- {% include 'includes/submit-ilr-button-v1.html' %} -->
-				</form>
-			</p>
-			
-			<hr>
-
-			<div class="grid-row">
-				<h2 class="heading-medium clearfix">
-					<div class="pull-left">
-						{% if not data['ilr-submission-status'] or data['ilr-submission-status'] == 'processing'%}
-						No reports available
-						{% elif data['ilr-submission-status'] == 'processed' and '01-B' in data['file-upload'] %}
-						21 Reports
-						{% else %}
-						11 error reports
-						{% endif %}
-					</div>
-
-					<div class="pull-right">
-						{% if data['ilr-submission-status'] == 'processed' %}
-						<a href="#" class="font-small">Download all reports</a>
-						{% endif %}
-					</div>
-				</h2>
-			</div>
-			
+		<div class="pull-right">
 			{% if data['ilr-submission-status'] == 'processed' %}
-			{% for report in reports %}
-			<details>
-				<summary><span class="summary">{{ report.title }}</span></summary>
-
-				<div class="panel panel-border-thin">
-					<ul class="list list-bullet">
-						<li>Sed do eiusmod tempor incididunt</li>
-						<li>Ut labore et dolore magna aliqua</li>
-						<li>Ut enim ad minim veniam</li>
-					</ul>
-					<p><a href="#" class="button-secondary">Download</a> (<i>{{ report.filetype }}</i>, {{ report.size }})</p>
-				</div>
-			</details>
-			{% endfor %}
-			{% endif %}
-
-			<hr>
-
-			{% if data['ilr-submission-status'] %}
-			<details>
-				<summary><span class="summary">Submission history</span></summary>
-
-				<div class="panel panel-border-thin">
-					<p>
-						<span class="font-xsmall">3.29pm on 23rd August 2018</span><br>
-						<span title="{{ data['file-upload'] }}">ILR file</span> was uploaded by Jane Smith
-					</p>
-					<p>
-						<span class="font-xsmall">3.54pm on 20th August 2018</span><br>
-						<span title="{{ data['file-upload'] }}">ILR file</span> was processed
-					</p>
-					<p>
-						<span class="font-xsmall">1.14pm on 20th August 2018</span><br>
-						<span title="{{ data['file-upload'] }}">ILR file</span> was uploaded by you
-					</p>
-				</div>
-			</details>
+			<a href="#" class="font-small">Download all reports</a>
 			{% endif %}
 		</div>
-		
-		<div class="column-one-third">
-			
-			{% include 'includes/return_period_info.html' %}
-			<hr>
-			<h3 class="heading-medium">
-				Latest information 
-				<div class="font-xsmall">12th December 2017</div>
-			</h3>
-			<p>Qualification achievement rates for 2016 to 2017 - provisional data now available.</p>
-			<p>Guidance on how to use your data extracts can be found here.</p>
-			<p><a href="#">See all announcements</a></p>
-		</div>
+	</h2>
+</div>
+
+{% if data['ilr-submission-status'] == 'processed' %}
+{% for report in reports %}
+<details>
+	<summary><span class="summary">{{ report.title }}</span></summary>
+
+	<div class="panel panel-border-thin">
+		<ul class="list list-bullet">
+			<li>Sed do eiusmod tempor incididunt</li>
+			<li>Ut labore et dolore magna aliqua</li>
+			<li>Ut enim ad minim veniam</li>
+		</ul>
+		<p><a href="#" class="button-secondary">Download</a> (<i>{{ report.filetype }}</i>, {{ report.size }})</p>
 	</div>
-</main>
+</details>
+{% endfor %}
+{% endif %}
 
+<hr>
+
+{% if data['ilr-submission-status'] %}
+<details>
+	<summary><span class="summary">Submission history</span></summary>
+
+	<div class="panel panel-border-thin">
+		<p>
+			<span class="font-xsmall">3.29pm on 23rd August 2018</span><br>
+			<span title="{{ data['file-upload'] }}">ILR file</span> was uploaded by Jane Smith
+		</p>
+		<p>
+			<span class="font-xsmall">3.54pm on 20th August 2018</span><br>
+			<span title="{{ data['file-upload'] }}">ILR file</span> was processed
+		</p>
+		<p>
+			<span class="font-xsmall">1.14pm on 20th August 2018</span><br>
+			<span title="{{ data['file-upload'] }}">ILR file</span> was uploaded by you
+		</p>
+	</div>
+</details>
+{% endif %}
+{% endblock %}
+
+{% block sidebar %}
+{% include 'includes/return_period_info.html' %}
+<hr>
+<h3 class="heading-medium">
+	Latest information 
+	<div class="font-xsmall">12th December 2017</div>
+</h3>
+<p>Qualification achievement rates for 2016 to 2017 - provisional data now available.</p>
+<p>Guidance on how to use your data extracts can be found here.</p>
+<p><a href="#">See all announcements</a></p>
 {% endblock %}

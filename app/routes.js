@@ -7,7 +7,7 @@ router.get('/', function (req, res) {
 })
 
 router.get('/submit-ilr', function (req, res) {
-	res.render('submit-ilr')
+	res.render('submit-ilr-v1')
 })
 
 router.get('/upload', function (req, res) {
