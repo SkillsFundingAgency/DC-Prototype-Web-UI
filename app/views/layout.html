@@ -15,7 +15,7 @@
     <!-- <a href="#proposition-links" class="js-header-toggle menu">Menu</a> -->
 
     <nav id="proposition-menu">
-      <a href="/" id="proposition-name">
+      <a href="/hub" id="proposition-name">
         {# Set serviceName in config.js. Use a block to override on a page. #}
         {% block service_name %}
         {% if serviceName %} {{ serviceName }} {% endif %}
@@ -23,7 +23,7 @@
       </a>
 
 <!-- <ul id="proposition-links">
-<li><a href="/" class="active">Hub Home</a></li>
+<li><a href="/hub" class="active">Hub Home</a></li>
 <li><a href="#">Manage your account</a></li>
 <li><a href="#">Log out</a></li>
 </ul> -->
@@ -42,16 +42,16 @@ with-proposition
 {% if useAutoStoreData %}
 <ul>
   <li>
-    <a href="/prototype-admin/config">Config</a>
+    <a href="/prototype/config">Config</a>
   </li>
   <li>
-    <a href="/prototype-admin/clear-data">Clear data</a>
+    <a href="/prototype/clear-data">Clear data</a>
   </li>
   <li>
     Hub {{data['hub-version']}}
   </li>
   <li>
-    <form action="/">
+    <form action="/hub">
       <input type="hidden" name="ilr-submission-status" value="processed">
       <input type="submit" value="Process ILR" class="button-secondary">
     </form>

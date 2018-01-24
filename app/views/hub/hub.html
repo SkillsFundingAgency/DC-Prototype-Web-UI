@@ -1,0 +1,5 @@
+{% if data['hub-version'] %}
+{% extends "hub/hub-layout-" + data['hub-version'] + ".html" %}
+{% else %}
+{% extends "hub/hub-layout-v6.html" %}
+{% endif %}

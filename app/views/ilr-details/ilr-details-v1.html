@@ -15,7 +15,7 @@ ILR Submission History
 	
 	<div class="breadcrumbs">
 		<ol>
-			<li><a href="/">{{ data['provider-name'] or "Cambridge College" }}</a></li>
+			<li><a href="/hub">{{ data['provider-name'] or "Cambridge College" }}</a></li>
 			<li class="parent-breadcrumb"><a href="/ilr-submission-history">ILR submission history</a></li>
 			<li><a href="/ilr-details?ilr-period={{ data['ilr-period'] }}&ilr-year={{ data['ilr-year'] }}" class="breadcrumb-for-current-page">Return period {{ data['ilr-period'] }}</a></li>
 		</ol>
@@ -38,8 +38,9 @@ ILR Submission History
 				</strong>
 			</p>
 			{% elif data['ilr-submission-status'] == 'processing' %}
-			<p class="bold">Your latest ILR submission is being processed.</p>
-			<p>Estimated processing time is currently <span class="bold">around 3 hours</span>.</p>
+			<p class="bold">Your <a href="/ilr-details?ilr-period=6&ilr-year=2017%E2%80%932018">latest ILR submission</a> is being processed.</p>
+			<p>There are 12 files in front of yours.</p>
+			<p>Reports should be ready in around 3 hours and you will receive an email when your reports are ready.</p>
 			{% elif data['ilr-submission-status'] == 'processed' %}
 			<p class="notice">
 				<i class="icon icon-important">
@@ -47,24 +48,17 @@ ILR Submission History
 				</i>
 				<strong class="bold-small">
 					{% if '01-B' in data['file-upload'] %}
-					Your latest ILR submission has been processed. 
+					Your <a href="ilr-details?ilr-period=6&ilr-year=2017%E2%80%932018">latest ILR submission</a> has been processed. 
 					{% else %}
-					Your latest ILR submission contains errors.
+					Your <a href="ilr-details?ilr-period=6&ilr-year=2017%E2%80%932018">latest ILR submission</a> contains errors.
 					{% endif %}
 				</strong>
 			</p>
 			{% endif %}
 
-			<p>
-				<form action="/submit-ilr">
-					<input type="hidden" value="v4" name="hub-version">
-					<!-- {% include 'includes/submit-ilr-button-v1.html' %} -->
-				</form>
-			</p>
-
 			{% if data['ilr-submission-status'] %}
 			<details>
-				<summary><span class="summary">Submission history</span></summary>
+				<summary><span class="summary">View submission history</span></summary>
 
 				<div class="panel panel-border-thin">
 					<p>

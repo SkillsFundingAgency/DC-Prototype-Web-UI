@@ -140,7 +140,7 @@ if (useAutoStoreData === 'true') {
 }
 
 // Clear all data in session if you open /prototype-admin/clear-data
-app.get('/prototype-admin/clear-data', function (req, res) {
+app.get('/prototype/clear-data', function (req, res) {
   req.session.destroy()
   res.render('prototype-admin/clear-data')
 })
