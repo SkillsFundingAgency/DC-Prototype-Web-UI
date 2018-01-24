@@ -27,37 +27,39 @@ Submit an ILR
 			
 			<p>You are uploading an ILR file for <span class="bold">Return period 6 (R06)</span>.</p>
 
-			<div id="upload-v2">
-				<form id="upload-select" action="upload-complete">
-					<label for="upload" class="button photo-upload-label" role="button">
-						<span id="photo-label-text" class="">Select ILR file</span>
-					</label>
-					<input accept="text/xml" id="upload" class="choose-file" name="file-upload" aria-controls="progress-container" aria-required="true" type="file">
-				</form>
+			<form action="submission-complete" id="file-submission">
+				<div id="upload-v2">
+					<div id="upload-select-area">
+						<label for="upload" class="button photo-upload-label" role="button">
+							<span id="photo-label-text" class="">Select ILR file</span>
+						</label>
+						<input accept="text/xml" id="upload" class="choose-file" name="file-upload" aria-controls="progress-container" aria-required="true" type="file">
+					</div>
 
-				<div id="file-details" class="hidden">
-					<table class="table-font-xsmall">
-						<tbody>
-							<tr>
-								<td><span class="bold">File name</span></td>
-								<td class="file-name"></td>
-								<td><a id="change-file" href="#change">Change</a></td>
-							</tr>
-							<tr>
-								<td><span class="bold">File size</span></td>
-								<td>209.8kb</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td><span class="bold">Date and time</span></td>
-								<td>28 April 2018 at 10.38am</td>
-								<td></td>
-							</tr>
-						</tbody>
-					</table>
+					<div id="file-details" class="hidden">
+						<table class="table-font-xsmall">
+							<tbody>
+								<tr>
+									<td><span class="bold">File name</span></td>
+									<td class="file-name"></td>
+									<td><a id="change-file" href="#change">Change</a></td>
+								</tr>
+								<tr>
+									<td><span class="bold">File size</span></td>
+									<td>209.8kb</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td><span class="bold">Date and time</span></td>
+									<td class="file-date">28 April 2018 at 10.38am</td>
+									<td></td>
+								</tr>
+							</tbody>
+						</table>
 
-					<p id="submit-file-section">
-						<form action="submission-complete" id="confirm-upload">
+						<br>
+
+						<div id="submit-file-area">
 							<div class="form-group">
 								<div class="multiple-choice">
 									<input id="email-confirmation" name="email-confirmation" type="checkbox" value="email-confirmation" checked>
@@ -66,18 +68,19 @@ Submit an ILR
 							</div>
 
 							<input type="hidden" name="ilr-submission-status" value="processing">
+							<input type="hidden" name="file-date" value="">
 
-							<button class="button" name="confirm-upload" type="submit">Confirm and upload ILR file</button>
-						</form>
-					</p>
-				</div>
+							<input type="submit" class="button" name="confirm-upload" value="Confirm and upload ILR file">
+						</div>
+					</div>
 
-				<div id="uploading-progress" class="hidden">
-					<img id="loading-spinner" src="/public/images/loading-spinner.gif" width="40px">
-					<p>Uploading <span class="file-name"></span></p>
-					<p>Estimated time remaining: 14 minutes.</p>
+					<div id="uploading-progress" class="hidden">
+						<img id="loading-spinner" src="/public/images/loading-spinner.gif" width="40px">
+						<p>Uploading <span class="file-name"></span></p>
+						<p>Estimated time remaining: 14 minutes.</p>
+					</div>
 				</div>
-			</div>
+			</form>
 		</div>
 	</div>
 </main>
