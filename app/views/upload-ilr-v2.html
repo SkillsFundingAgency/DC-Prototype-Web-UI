@@ -61,9 +61,13 @@ Submit an ILR
 
 						<div id="submit-file-area">
 							<div class="form-group">
-								<div class="multiple-choice">
+								<div class="multiple-choice" data-target="contact-by-email">
 									<input id="email-confirmation" name="email-confirmation" type="checkbox" value="email-confirmation" checked>
-									<label for="email-confirmation">Email me when the ILR file has been processed</label>
+									<label for="email-confirmation">Send an email when the ILR file has been processed</label>
+								</div>
+								<div class="panel panel-border-narrow js-hidden" id="contact-by-email">
+									<label class="form-label" for="contact-email">Email address</label>
+									<input class="form-control" name="contact-email" type="text" id="contact-email" value="your.name@youremail.com">
 								</div>
 							</div>
 

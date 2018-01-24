@@ -22,8 +22,12 @@ router.get('/upload-complete', function (req, res) {
 	res.render('upload-complete-v2')
 })
 
-router.get('/prototype-admin/config', function (req, res) {
-	res.render('config')
+router.get('/admin/config', function (req, res) {
+	res.render('prototype-admin/config')
+})
+
+router.get('/admin/dashboard', function (req, res) {
+	res.render('prototype-admin/prototype-dashboard')
 })
 
 // Route index page
