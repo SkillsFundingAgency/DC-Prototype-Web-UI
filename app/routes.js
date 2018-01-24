@@ -83,7 +83,7 @@ router.get('/ilr-details', function (req, res) {
 // 			Trailblazer Apprenticeships Employer Incentives Report.csv
 // 			Trailblazer Apprenticeships Occupancy Report.csv
 	];
-	res.render('ilr-details-v2', { reports: reports })
+	res.render('ilr-details-v3', { reports: reports })
 })
 
 module.exports = router
