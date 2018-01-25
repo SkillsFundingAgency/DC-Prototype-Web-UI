@@ -53,6 +53,10 @@ with-proposition
   <li>
     <form action="/hub">
       <input type="hidden" name="ilr-submission-status" value="processed">
+      {% if not data['file-upload'] %}
+      <input type="hidden" name="file-upload" value="01-B">
+      <input type="hidden" name="file-date" value="26 January 2017 at 3.02 PM">
+      {% endif %}
       <input type="submit" value="Process ILR" class="button-secondary">
     </form>
   </li>
