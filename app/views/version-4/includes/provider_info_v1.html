@@ -1,0 +1,19 @@
+<aside>
+	<br>
+	<h1 class="heading-small">			
+		{% if data['provider-name'] %}
+		{{ data['provider-name'] }}
+		{% else %}
+		Cambridge College
+		{% endif %}<br>
+		<span class="font-xsmall">
+			(UKPRN: {% if data['ukprn-number'] %}{{ data['ukprn-number'] }}{% else %}10008273{% endif %})
+		</span>
+	</h1>
+	<p class="font-xsmall bold">Welcome, {% if data['user-name'] %}{{ data['user-name'] }}{% else %}Ann Smith{% endif %}</p>
+	<ul class="font-xsmall">
+		<li><a href="/hub-v4" class="active">Hub Home</a></li>
+		<li><a href="#">Manage your account</a></li>
+		<li><a href="#">Log out</a></li>
+	</ul>
+</aside>

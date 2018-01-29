@@ -1,0 +1,35 @@
+{
+	title: "16-19 Funding Claim Report",
+	filetype: "PDF",
+	size: "20kB"
+},
+{
+	title: "16-19 Summary of Funding by Student Report",
+	filetype: "CSV",
+	size: "20kB"
+},
+{
+	title: "ALLB Occupancy Report",
+	filetype: "CSV",
+	size: "20kB"
+},
+{
+	title: "Adult Funding Claim Report (CSV)",
+	filetype: "CSV",
+	size: "20kB"
+},
+{
+	title: "Adult Funding Claim Report (XLS)",
+	filetype: "XLS",
+	size: "20kB"
+},
+{
+	title: "Apps Indicative Earnings Report",
+	filetype: "CSV",
+	size: "20kB"
+},
+{
+	title: "CL Summary of Learners by Non-Single Budget Category Report",
+	filetype: "PDF",
+	size: "20kB"
+}

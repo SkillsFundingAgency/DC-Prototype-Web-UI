@@ -1,0 +1,73 @@
+{% extends "govuk_template.html" %}
+
+{% block head %}
+{% include "includes/head.html" %}
+{% endblock %}
+
+{% block cookie_message %}
+<p>{{cookieText | safe }}</p>
+{% endblock %}
+
+{% block proposition_header %}
+
+<div class="header-proposition">
+  <div class="content">
+    <!-- <a href="#proposition-links" class="js-header-toggle menu">Menu</a> -->
+
+    <nav id="proposition-menu">
+      <a href="/hub" id="proposition-name">
+        {# Set serviceName in config.js. Use a block to override on a page. #}
+        {% block service_name %}
+        {% if serviceName %} {{ serviceName }} {% endif %}
+        {% endblock %}
+      </a>
+
+<!-- <ul id="proposition-links">
+<li><a href="/hub" class="active">Hub Home</a></li>
+<li><a href="#">Manage your account</a></li>
+<li><a href="#">Log out</a></li>
+</ul> -->
+
+</nav>
+</div>
+</div>
+
+{% endblock %}
+
+{% block header_class %}
+with-proposition
+{% endblock %}
+
+{% block footer_support_links %}
+{% if useAutoStoreData %}
+<ul>
+  <li>
+    <a href="/prototype/config">Config</a>
+  </li>
+  <li>
+    <a href="/prototype/clear-data">Clear data</a>
+  </li>
+  <li>
+    Hub {{data['hub-version']}}
+  </li>
+  <li>
+    <form action="/hub">
+      <input type="hidden" name="ilr-submission-status" value="processed">
+      {% if not data['file-upload'] %}
+      <input type="hidden" name="file-upload" value="01-B">
+      <input type="hidden" name="file-date" value="26 January 2017 at 3.02 PM">
+      {% endif %}
+      <input type="submit" value="Process ILR" class="button-secondary">
+    </form>
+  </li>
+</ul>
+{% endif %}
+{% endblock %}
+
+{% block body_end %}
+{% block scripts %}
+{% include "includes/scripts.html" %}
+{% block page_scripts %}{% endblock %}
+{% endblock %}
+<!-- GOV.UK Prototype kit {{releaseVersion}} -->
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+ESFA Hub - GOV.UK
+{% endblock %}
+
+{% block service_name %}
+ESFA Hub
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+	{% include 'includes/phase_banner.html' %}
+	
+	<div class="grid-row">
+		<div class="column-full">
+			<h1 class="heading-xlarge">
+				Cambridge College
+				<span class="heading-secondary">UKPRN: 20871288</span>
+			</h1>
+		</div>
+	</div>
+	
+	<div class="grid-row">
+		<ul>
+			<li class="column-third margin-top">
+				<a class="dashboard-links" href="submit-ilr">
+                        
+					<span class="service-name">
+						Individualised Learner Records (<abbr title="Individualised Learner Record">ILR</abbr>)<br>
+						<small class="font-xsmall">Return period 6</small>
+					</span>
+					
+					{% if data['file-upload'] and  'invalid' in data['file-upload'] %}
+					<span class="alert-name-red">1 report to review</span>		
+					{% elif data['file-upload'] and  'valid' in data['file-upload'] %}
+					<span class="alert-name-green">1 report to review</span>		
+					{% else %}
+					<span class="alert-name-blue">Submit an ILR file</span>
+					{% endif %}
+				</a>
+			</li>
+
+			<li class="column-third margin-top">
+				<a class="dashboard-links" href="#">
+                        
+					<span class="service-name">Earnings adjustment statements (<abbr title="Earnings adjustment statement">EAS</abbr>)</span>
+					
+					<!--<span class="alert-name-red">2 new alerts to review</span>-->
+					<span class="alert-name-blue">Submit an EAS</span>
+				</a>
+			</li>
+
+			<li class="column-third margin-top">
+				<a class="dashboard-links" href="#">
+                        
+					<span class="service-name">Data Returns</span>
+                    
+					<span class="alert-name-blue">Review your funding claims</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+			
+	<h2 class="heading-medium">Other resources</h2>
+
+	<ul class="list list-bullet">
+		<li>
+			<a href="https://www.gov.uk/guidance/sfa-funding-rules">Funding Rules</a>
+		</li>
+		<li>
+			<a href="https://www.gov.uk/government/collections/individualised-learner-record-ilr">The ILR Returns Calendar</a>
+		</li>
+	</ul>
+</main>
+
+{% endblock %}
+
+

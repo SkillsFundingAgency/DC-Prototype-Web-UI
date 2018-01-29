@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Submit an ILR - GOV.UK
+{% endblock %}
+
+{% block service_name %}
+Submit an ILR
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+	{% include 'includes/phase_banner.html' %}
+	
+	<div class="grid-row">
+		<div class="column-two-thirds">			
+			<div class="govuk-box-highlight">
+				<h1 class="heading-xlarge">
+					Submission complete
+				</h1>
+				<p class="font-large">
+					Your reference number is <br>
+					<strong class="bold">HDJ2123F</strong>
+				</p>
+			</div>
+			
+			<h2 class="heading-medium">What happens next</h2>
+			<p>Once your file has been processed you will receive an email notification.</p>
+			<p>If any issues or errors were found in the data that you submitted we will let you know.</p>
+			<p>
+				<a class="button" href="../hub" role="button">
+					Return to the Hub
+				</a>
+			</p>
+			
+		</div>
+	</div>
+</main>
+
+{% endblock %}
+
+
