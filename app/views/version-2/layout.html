@@ -1,5 +1,7 @@
 {% extends "govuk_template.html" %}
 
+{% set version_number = 2 %}
+
 {% block head %}
 {% include "includes/head.html" %}
 {% endblock %}
@@ -42,7 +44,7 @@ with-proposition
 {% if useAutoStoreData %}
 <ul>
   <li>
-    <a href="/prototype/config">Config</a>
+    <a href="/version-{{version_number}}">Config</a>
   </li>
   <li>
     <a href="/prototype/clear-data">Clear data</a>
@@ -51,7 +53,7 @@ with-proposition
     Hub {{data['hub-version']}}
   </li>
   <li>
-    <form action="/hub">
+    <form action="/version-{{version_number}}/hub">
       <input type="hidden" name="ilr-submission-status" value="processed">
       {% if not data['file-upload'] %}
       <input type="hidden" name="file-upload" value="01-B">
