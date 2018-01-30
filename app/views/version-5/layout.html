@@ -15,7 +15,7 @@
     <!-- <a href="#proposition-links" class="js-header-toggle menu">Menu</a> -->
 
     <nav id="proposition-menu">
-      <a href="/hub" id="proposition-name">
+      <a href="/version-5/hub" id="proposition-name">
         {# Set serviceName in config.js. Use a block to override on a page. #}
         {% block service_name %}
         {% if serviceName %} {{ serviceName }} {% endif %}
@@ -51,7 +51,7 @@ with-proposition
     Hub {{data['hub-version']}}
   </li>
   <li>
-    <form action="/hub">
+    <form action="./hub">
       <input type="hidden" name="ilr-submission-status" value="processed">
       {% if not data['file-upload'] %}
       <input type="hidden" name="file-upload" value="01-B">

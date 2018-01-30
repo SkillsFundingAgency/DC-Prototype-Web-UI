@@ -1,4 +1,4 @@
-{% extends "version-5/layout.html" %}
+{% extends "../layout.html" %}
 
 {% block page_title %}
 ILR Submission History
@@ -15,8 +15,8 @@ ILR Submission History
 	
 	<div class="breadcrumbs">
 		<ol>
-			<li><a href="/hub">{{ data['provider-name'] or "Cambridge College" }}</a></li>
-			<li><a href="/ilr-submission-history">ILR submission history</a></li>
+			<li><a href="../hub/">{{ data['provider-name'] or "Cambridge College" }}</a></li>
+			<li><a href="">ILR submission history</a></li>
 		</ol>
 	</div>
 	
@@ -37,7 +37,7 @@ ILR Submission History
 
 				<tbody>	
 					<tr>
-						<td><a href="/ilr-details?ilr-period=6&ilr-year=2017&ndash;2018">Return period 6</a></td>
+						<td><a href="./ilr-details?ilr-period=6&ilr-year=2017&ndash;2018">Return period 6</a></td>
 						<td>Open</td>
 						<td>1st &ndash; 30th September 2017</td>
 					</tr>
