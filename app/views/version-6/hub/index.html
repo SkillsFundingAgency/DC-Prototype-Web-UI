@@ -1,0 +1,106 @@
+{% extends "version-6/layout.html" %}
+
+{% block page_title %}
+[[SERVICE NAME]] - GOV.UK
+{% endblock %}
+
+{% block service_name %}
+
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+	{% include '../includes/phase_banner.html' %}
+	<div class="grid-row">
+		<div class="column-two-thirds">					
+			<h1 class="heading-large">Your data returns</h1>
+
+			<h2 class="heading-medium">
+				Individualised Learner Records (<abbr title="Individualised Learner Record">ILR</abbr>)
+			</h2>
+			
+			<p><a href="ilr-submissions/ilr-submission-history">View previous ILR submissions</a></p>
+
+			{% set ilr_url = 'ilr-submissions/ilr-details?ilr-period=6&ilr-year=2017%E2%80%932018' %}
+
+			{% if not data['ilr-submission-status'] %}
+			<p class="notice">
+				<i class="icon icon-important">
+					<span class="visually-hidden">Warning</span>
+				</i>
+				<strong class="bold-small">
+					You haven't submitted an ILR file for Return period 6 (R06) yet.
+				</strong>
+			</p>
+			{% elif data['ilr-submission-status'] == 'processing' %}
+			<p class="bold">Your <a href="{{ ilr_url }}">latest ILR submission</a> is being processed.</p>
+			{% elif data['ilr-submission-status'] == 'processed' %}
+			<p class="notice">
+				<i class="icon icon-important">
+					<span class="visually-hidden">Warning</span>
+				</i>
+				<strong class="bold-small">
+					{% if '01-B' in data['file-upload'] %}
+					Your <a href="{{ ilr_url }}">latest ILR submission</a> has been processed. 
+					{% else %}
+					Your <a href="{{ ilr_url }}">latest ILR submission</a> contains errors.
+					{% endif %}
+				</strong>
+			</p>
+			{% endif %}
+
+			<p>
+					<a href="submit-ilr" class="button">Submit ILR file</a>
+			</p>
+			{% if data['file-upload'] %}
+			<p class="font-xsmall">Last file uploaded by you on {{ data['file-date'] }}</p>
+			{% endif %}
+			
+			<hr>
+			
+			{% if not data['features'] or 'feature-eas' in data['features'] %}
+			<h2 class="heading-medium">
+				Earnings adjustment statements (<abbr title="Earnings adjustment statement">EAS</abbr>)
+			</h2>
+
+			<p><a href="#">Manage your Earnings adjustment statements</a></p>
+			<p><a href="#">EAS reports</a></p>
+			
+			<hr>
+			{% endif %}
+
+			<h2 class="heading-large">Other resources</h2>
+
+			<h3 class="heading-medium">Learning aims</h3>
+			
+			<p><a href="#" class="button-secondary">Find a Learning aim</a></p>
+
+			<hr>
+
+			<ul class="list list-bullet">
+				<li>
+					<!-- <a href="https://www.gov.uk/guidance/sfa-funding-rules">Funding Rules</a> -->
+				</li>
+				<li>
+					<!-- <a href="https://www.gov.uk/government/collections/individualised-learner-record-ilr">The ILR Returns Calendar</a> -->
+				</li>
+			</ul>
+		</div>
+
+		<div class="column-one-third">
+			{% include '../includes/provider_info.html' %}
+
+			{% include '../includes/return_period_info.html' %}
+			<hr>
+			<h3 class="heading-medium">
+				Latest information 
+				<div class="font-xsmall">12th December 2017</div>
+			</h3>
+			<p>Qualification achievement rates for 2016 to 2017 - provisional data now available.</p>
+			<p>Guidance on how to use your data extracts can be found here.</p>
+			<p><a href="#">See all announcements</a></p>
+		</div>
+	</div>
+</main>
+{% endblock %}
